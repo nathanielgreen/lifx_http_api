@@ -73,6 +73,3 @@ build/
 !**/ios/**/default.pbxuser
 !**/ios/**/default.perspectivev3
 .env*
-
-# Dart doc
-doc
