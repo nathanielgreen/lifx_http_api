@@ -1,6 +1,7 @@
 import 'package:test/test.dart';
 import 'package:http/testing.dart';
-import 'package:lifx_dart/lifx_dart.dart';
+import 'package:http/http.dart' show Response;
+import '../lib/lifx_http_api.dart';
 
 var httpClient = MockClient((request) async {
   return Response("", 404);
