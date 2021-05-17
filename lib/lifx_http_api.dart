@@ -2,12 +2,6 @@ library lifx_http_api;
 
 import 'package:http/http.dart' as http;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
-
 class Client {
   String apiKey;
 

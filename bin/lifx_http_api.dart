@@ -6,6 +6,4 @@ void main() async {
   var apiKey = env["LIFX_API_KEY"];
   var client = Client("${apiKey}");
   var response = await client.listLights();
-  await print(response.statusCode);
-  await print(response.body);
 }

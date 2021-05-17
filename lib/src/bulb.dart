@@ -1,15 +1,16 @@
 class Bulb {
-  final String id;
-  final String uuid;
-  final String label;
-  final bool connected;
-  String power;
+  String id;
+  bool connected;
 
   Bulb({
-    this.id,
-    this.uuid,
-    this.label,
-    this.connected,
-    this.power,
+    required this.id,
+    required this.connected,
   });
+
+  factory Bulb.fromJson(Map<String, dynamic> json) {
+    return Bulb(
+      id: json["id"],
+      connected: json["connected"],
+    );
+  }
 }
