@@ -17,10 +17,21 @@ class Client {
       final data = jsonDecode(response.body);
       List<Bulb> bulbs = [];
       data.forEach((bulb) => bulbs.add(Bulb.fromJson(bulb)));
-      print(bulbs);
       return bulbs;
     } else {
       throw Exception('Failed to load bulb');
+    }
+  }
+
+  Future<String> setState(String uuid) async {
+    final url = Uri.parse("https://api.lifx.com/v1/lights/$uuid/state");
+    final headers = {"Authorization": "Bearer ${apiKey}"};
+    final response = await http.get(url, headers: headers);
+    if (response.statusCode == 202) {
+      final data = jsonDecode(response.body);
+      return data.status;
+    } else {
+      throw Exception('Failed to set bulb state');
     }
   }
 }
