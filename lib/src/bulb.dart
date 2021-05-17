@@ -1,11 +1,17 @@
-enum Power { on, off }
-
 class Color {
   double hue;
   double saturation;
   int kelvin;
 
   Color({required this.hue, required this.saturation, required this.kelvin});
+
+  factory Color.fromJson(Map<String, dynamic> json) {
+    return Color(
+      hue: json["hue"].toDouble(),
+      saturation: json["saturation"].toDouble(),
+      kelvin: json["kelvin"].toInt(),
+    );
+  }
 }
 
 class Bulb {
@@ -13,7 +19,7 @@ class Bulb {
   String uuid;
   String label;
   bool connected;
-  Power power;
+  String power;
   Color color;
   double brightness;
 
@@ -34,8 +40,8 @@ class Bulb {
       label: json["label"],
       connected: json["connected"],
       power: json["power"],
-      color: json["color"],
-      brightness: json["brightness"],
+      color: Color.fromJson(json["color"]),
+      brightness: json["brightness"].toDouble(),
     );
   }
 }
