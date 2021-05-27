@@ -1,27 +1,16 @@
-class Color {
-  double hue;
-  double saturation;
-  int kelvin;
+import 'package:json_annotation/json_annotation.dart';
 
-  Color({required this.hue, required this.saturation, required this.kelvin});
+part 'bulb.g.dart';
 
-  factory Color.fromJson(Map<String, dynamic> json) {
-    return Color(
-      hue: json["hue"].toDouble(),
-      saturation: json["saturation"].toDouble(),
-      kelvin: json["kelvin"].toInt(),
-    );
-  }
-}
-
+@JsonSerializable()
 class Bulb {
-  String id;
-  String uuid;
-  String label;
-  bool connected;
-  String power;
-  Color color;
-  double brightness;
+  final String id;
+  final String uuid;
+  final String label;
+  final bool connected;
+  final String power;
+  final Color color;
+  final double brightness;
 
   Bulb({
     required this.id,
@@ -33,15 +22,5 @@ class Bulb {
     required this.brightness,
   });
 
-  factory Bulb.fromJson(Map<String, dynamic> json) {
-    return Bulb(
-      id: json["id"],
-      uuid: json["uuid"],
-      label: json["label"],
-      connected: json["connected"],
-      power: json["power"],
-      color: Color.fromJson(json["color"]),
-      brightness: json["brightness"].toDouble(),
-    );
-  }
+  factory Bulb.fromJson(Map<String, dynamic> json) => _$BulbFromJson(json);
 }

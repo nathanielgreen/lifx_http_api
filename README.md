@@ -1,5 +1,7 @@
 # LIFX HTTP API
 
+[![style: lint](https://img.shields.io/badge/style-lint-4BC0F5.svg)](https://pub.dev/packages/lint)
+
 A dart implementation of the [LIFX HTTP
 API](https://api.developer.lifx.com/docs/introduction).
 
