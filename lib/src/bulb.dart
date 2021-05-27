@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import './color.dart';
 
 part 'bulb.g.dart';
 
@@ -23,4 +24,6 @@ class Bulb {
   });
 
   factory Bulb.fromJson(Map<String, dynamic> json) => _$BulbFromJson(json);
+
+  Map<String, dynamic> toJson() => _$BulbToJson(this);
 }

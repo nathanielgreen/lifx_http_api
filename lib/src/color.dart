@@ -11,4 +11,6 @@ class Color {
   Color({required this.hue, required this.saturation, required this.kelvin});
 
   factory Color.fromJson(Map<String, dynamic> json) => _$ColorFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ColorToJson(this);
 }

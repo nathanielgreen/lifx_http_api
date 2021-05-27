@@ -13,7 +13,7 @@ Bulb _$BulbFromJson(Map<String, dynamic> json) {
     label: json['label'] as String,
     connected: json['connected'] as bool,
     power: json['power'] as String,
-    color: json['color'],
+    color: Color.fromJson(json['color'] as Map<String, dynamic>),
     brightness: (json['brightness'] as num).toDouble(),
   );
 }
