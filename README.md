@@ -2,13 +2,16 @@
 
 [![style: lint](https://img.shields.io/badge/style-lint-4BC0F5.svg)](https://pub.dev/packages/lint)
 
+**NOTE:** This library is a WIP unstable and should not be used for any production
+environments.
+
 A dart implementation of the [LIFX HTTP
 API](https://api.developer.lifx.com/docs/introduction).
 
 ## LIFX HTTP API Implementation Checklist
 
 - [x] (GET) List Lights
-- [x] (PUT) Set State
+- [ ] (PUT) Set State
 - [ ] (PUT) Set States
 - [ ] (POST) Set Delta
 - [ ] (POST) Toggle Power

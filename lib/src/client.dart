@@ -4,7 +4,6 @@ import 'package:mockito/mockito.dart';
 import 'package:http/http.dart' as http;
 import './bulb.dart' show Bulb;
 
-@GenerateMocks([Client])
 class Client {
   final String apiKey;
 
