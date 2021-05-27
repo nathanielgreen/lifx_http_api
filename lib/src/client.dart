@@ -22,10 +22,18 @@ class Client {
     }
   }
 
-  Future<num> setState(String uuid) async {
+  Future<num> setState(
+    String uuid, {
+    String? power,
+    double? brightness,
+    double? duration,
+    double? infrared,
+    bool? fast,
+  }) async {
     final url = Uri.parse("https://api.lifx.com/v1/lights/$uuid/state");
     final headers = {"Authorization": "Bearer $apiKey"};
-    final response = await http.get(url, headers: headers);
+    final response = await http.put(url,
+        headers: headers, body: {power, brightness, duration, infrared, fast});
     if (response.statusCode == 202) {
       final data = jsonDecode(response.body);
       return data.statusCode as num;

@@ -1,0 +1,41 @@
+{
+  "id": "abcdefghijkl",
+  "uuid": " ab041619-5c86-4afe-bc39-ff38ca862b47 ",
+  "label": "Example Lamp",
+  "connected": true,
+  "power": "off",
+  "color": {
+    "hue": 0,
+    "saturation": 0,
+    "kelvin": 2500
+  },
+  "brightness": 1,
+  "group": {
+    "id": " ea3ed917-7d31-4b7b-a30b-ef23a225d400 ",
+    "name": "Example Group"
+  },
+  "location": {
+    "id": "ae1063d8-fe21-4959-b04c-da558e70673e",
+    "name": "Example Location"
+  },
+  "product": {
+    "name": "LIFX GU10",
+    "identifier": "lifx_gu10",
+    "company": "LIFX",
+    "vendor_id": 1,
+    "product_id": 52,
+    "capabilities": {
+      "has_color": true,
+      "has_variable_color_temp": true,
+      "has_ir": false,
+      "has_hev": false,
+      "has_chain": false,
+      "has_matrix": false,
+      "has_multizone": false,
+      "min_kelvin": 2500,
+      "max_kelvin": 9000
+    }
+  },
+  "last_seen": "2021-05-27T00:00:00Z",
+  "seconds_since_seen": 0
+}
