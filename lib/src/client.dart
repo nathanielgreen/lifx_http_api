@@ -1,6 +1,4 @@
 import 'dart:convert' show jsonDecode;
-import 'package:mockito/annotations.dart';
-import 'package:mockito/mockito.dart';
 import 'package:http/http.dart' as http;
 import './bulb.dart' show Bulb;
 
@@ -15,7 +13,6 @@ class Client {
     final response = await http.get(url, headers: headers);
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
-      print(data);
       final List<Bulb> bulbs = [];
       data.forEach(
           (Map<String, dynamic> bulb) => bulbs.add(Bulb.fromJson(bulb)));
