@@ -8,6 +8,15 @@ environments.
 A dart implementation of the [LIFX HTTP
 API](https://api.developer.lifx.com/docs/introduction).
 
+## Repl
+
+This library also ships with a command line REPL to use the library. To use it:
+
+- Copy the .env example: `cp .env.example .env`
+- Add your LIFX Developer API key to the .env file
+- Run `dart run bin/cli.dart`
+- Run `help` in the REPL to get a list of available commands.
+
 ## LIFX HTTP API Implementation Checklist
 
 - [x] (GET) List Lights
