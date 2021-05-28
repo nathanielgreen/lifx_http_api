@@ -35,12 +35,18 @@ class Client {
       "Authorization": "Bearer $apiKey",
       "content-type": "application/json"
     };
-    final body = jsonEncode({"power": power, "fast": false});
+    final body = {};
+    if (power != null) body["power"] = power;
+    if (brightness != null) body["brightness"] = brightness;
+    if (duration != null) body["duration"] = duration;
+    if (infrared != null) body["infrared"] = infrared;
+    if (fast != null) body["fast"] = fast;
+
     final http.Response response =
-        await http.put(url, headers: headers, body: body);
+        await http.put(url, headers: headers, body: jsonEncode(body));
     final Map<String, dynamic> data =
         jsonDecode(response.body) as Map<String, dynamic>;
-    print(data);
+
     if (response.statusCode == 207) {
       return data;
     } else {

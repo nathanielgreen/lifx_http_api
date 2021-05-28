@@ -22,6 +22,11 @@ void main() async {
       final String id = args[1];
       final String pow = args[2];
       power(client, id, pow);
+    } else if (x.split(" ")[0] == 'brightness') {
+      final List<String> args = x.split(" ");
+      final String id = args[1];
+      final String bright = args[2];
+      brightness(client, id, bright);
     } else {
       print("Command not found.");
     }
@@ -35,8 +40,9 @@ void help() {
 
     Commands:
 
-    lights                   prints all available lights for your API key.
-    power <id> on|off        powers a light on or off.
+    lights                    prints all available lights for your API key.
+    power <id> on|off         powers a light on or off.
+    brightness <id> 0.0-1.0   changes the brightness of a bulb.
 ''');
   print('');
 }
@@ -57,12 +63,19 @@ void getLights(Client client) async {
     print('''
         ID: ${light.id}
         Label: ${light.label}
+        Brightness: ${light.brightness}
+        Power: ${light.power}
         ---
     ''');
   }
 }
 
-void power(Client client, String uuid, String power) async {
-  final res = await client.setState(uuid, power: power);
+void power(Client client, String id, String power) async {
+  final res = await client.setState(id, power: power);
+  print(res);
+}
+
+void brightness(Client client, String id, String brightness) async {
+  final res = await client.setState(id, brightness: double.parse(brightness));
   print(res);
 }
