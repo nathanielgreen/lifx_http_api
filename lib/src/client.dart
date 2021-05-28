@@ -1,6 +1,7 @@
 import 'dart:convert' show jsonDecode, jsonEncode;
 import 'package:http/http.dart' as http;
 import './bulb.dart' show Bulb;
+import './responses/set_state.dart' show SetStateBody;
 
 class Client {
   final String apiKey;
@@ -21,7 +22,7 @@ class Client {
     throw Exception('Failed to load bulb');
   }
 
-  Future<num> setState(
+  Future<SetStateBody> setState(
     String id, {
     String? power,
     double? brightness,
@@ -35,13 +36,11 @@ class Client {
       "content-type": "application/json"
     };
     final body = jsonEncode({"power": power, "fast": false});
-    print(body);
-    final response = await http.put(url, headers: headers, body: body);
-    print(response.statusCode);
-    print(response.body);
-    if (response.statusCode == 202) {
-      final data = jsonDecode(response.body);
-      return data.statusCode as num;
+    final http.Response response =
+        await http.put(url, headers: headers, body: body);
+    final SetStateBody responseBody = jsonDecode(response.body) as SetStateBody;
+    if (response.statusCode == 207) {
+      return responseBody;
     } else {
       throw Exception('Failed to set bulb state');
     }

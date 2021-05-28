@@ -18,7 +18,7 @@ void main() async {
     } else if (x == 'help') {
       help();
     } else if (x.split(" ")[0] == 'power') {
-      List<String> args = x.split(" ");
+      final List<String> args = x.split(" ");
       final String id = args[1];
       final String pow = args[2];
       power(client, id, pow);
@@ -53,7 +53,7 @@ Client loadApiKey(Repl repl) {
 
 void getLights(Client client) async {
   final lights = await client.listLights();
-  for (Bulb light in lights) {
+  for (final Bulb light in lights) {
     print('''
         ID: ${light.id}
         Label: ${light.label}
