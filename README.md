@@ -20,7 +20,7 @@ This library also ships with a command line REPL to use the library. To use it:
 ## LIFX HTTP API Implementation Checklist
 
 - [x] (GET) List Lights
-- [ ] (PUT) Set State
+- [x] (PUT) Set State
 - [ ] (PUT) Set States
 - [ ] (POST) Set Delta
 - [ ] (POST) Toggle Power

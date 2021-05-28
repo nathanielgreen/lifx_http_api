@@ -1,7 +1,6 @@
 import 'dart:convert' show jsonDecode, jsonEncode;
 import 'package:http/http.dart' as http;
 import './bulb.dart' show Bulb;
-import './responses/set_state.dart' show SetStateBody, SetStateResults;
 
 class Client {
   final String apiKey;
