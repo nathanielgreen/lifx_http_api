@@ -49,7 +49,7 @@ Client loadApiKey(Repl repl) {
   return Client(apiKey);
 }
 
-Future<List<Bulb>> getLights(Client client) async {
+Future<Iterable<Bulb>> getLights(Client client) async {
   final lights = await client.listLights();
   return lights;
 }

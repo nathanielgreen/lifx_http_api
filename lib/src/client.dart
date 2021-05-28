@@ -7,19 +7,18 @@ class Client {
 
   Client(this.apiKey);
 
-  Future<List<Bulb>> listLights() async {
+  Future<Iterable<Bulb>> listLights() async {
     final url = Uri.parse('https://api.lifx.com/v1/lights/all');
     final Map<String, String> headers = {"Authorization": "Bearer $apiKey"};
     final response = await http.get(url, headers: headers);
     if (response.statusCode == 200) {
-      final data = jsonDecode(response.body);
-      final List<Bulb> bulbs = [];
-      data.forEach(
-          (Map<String, dynamic> bulb) => bulbs.add(Bulb.fromJson(bulb)));
+      final List<Map<String, dynamic>> data =
+          (jsonDecode(response.body) as List<dynamic>)
+              .cast<Map<String, dynamic>>();
+      final Iterable<Bulb> bulbs = data.map((bulb) => Bulb.fromJson(bulb));
       return bulbs;
-    } else {
-      throw Exception('Failed to load bulb');
     }
+    throw Exception('Failed to load bulb');
   }
 
   Future<num> setState(
