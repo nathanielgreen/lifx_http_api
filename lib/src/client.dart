@@ -38,7 +38,8 @@ class Client {
     final body = jsonEncode({"power": power, "fast": false});
     final http.Response response =
         await http.put(url, headers: headers, body: body);
-    final Map<String, dynamic> data = jsonDecode(response.body);
+    final Map<String, dynamic> data =
+        jsonDecode(response.body) as Map<String, dynamic>;
     print(data);
     if (response.statusCode == 207) {
       return data;
