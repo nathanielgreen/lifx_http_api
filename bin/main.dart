@@ -11,18 +11,19 @@ void main() async {
   final client = loadApiKey(repl);
 
   await for (final x in repl.runAsync()) {
-    switch (x) {
-      case '':
-        continue;
-      case 'lights':
-        final res = await getLights(client);
-        print(res);
-        break;
-      case 'help':
-        help();
-        break;
-      default:
-        print(x);
+    if (x.trim().isEmpty) {
+      continue;
+    } else if (x == 'lights') {
+      getLights(client);
+    } else if (x == 'help') {
+      help();
+    } else if (x.split(" ")[0] == 'power') {
+      List<String> args = x.split(" ");
+      final String id = args[1];
+      final String pow = args[2];
+      power(client, id, pow);
+    } else {
+      print("Command not found.");
     }
   }
 }
@@ -34,9 +35,10 @@ void help() {
 
     Commands:
 
-    lights   prints all available lights for your API key.
-
-      ''');
+    lights                   prints all available lights for your API key.
+    power <id> on|off        powers a light on or off.
+''');
+  print('');
 }
 
 Client loadApiKey(Repl repl) {
@@ -49,7 +51,18 @@ Client loadApiKey(Repl repl) {
   return Client(apiKey);
 }
 
-Future<Iterable<Bulb>> getLights(Client client) async {
+void getLights(Client client) async {
   final lights = await client.listLights();
-  return lights;
+  for (Bulb light in lights) {
+    print('''
+        ID: ${light.id}
+        Label: ${light.label}
+        ---
+    ''');
+  }
+}
+
+void power(Client client, String uuid, String power) async {
+  final res = await client.setState(uuid, power: power);
+  print(res);
 }

@@ -1,4 +1,4 @@
-import 'dart:convert' show jsonDecode;
+import 'dart:convert' show jsonDecode, jsonEncode;
 import 'package:http/http.dart' as http;
 import './bulb.dart' show Bulb;
 
@@ -22,17 +22,23 @@ class Client {
   }
 
   Future<num> setState(
-    String uuid, {
+    String id, {
     String? power,
     double? brightness,
     double? duration,
     double? infrared,
     bool? fast,
   }) async {
-    final url = Uri.parse("https://api.lifx.com/v1/lights/$uuid/state");
-    final headers = {"Authorization": "Bearer $apiKey"};
-    final response = await http.put(url,
-        headers: headers, body: {power, brightness, duration, infrared, fast});
+    final url = Uri.parse("https://api.lifx.com/v1/lights/$id/state");
+    final headers = {
+      "Authorization": "Bearer $apiKey",
+      "content-type": "application/json"
+    };
+    final body = jsonEncode({"power": power, "fast": false});
+    print(body);
+    final response = await http.put(url, headers: headers, body: body);
+    print(response.statusCode);
+    print(response.body);
     if (response.statusCode == 202) {
       final data = jsonDecode(response.body);
       return data.statusCode as num;
