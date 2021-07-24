@@ -9,7 +9,7 @@ class Bulb {
   final String uuid;
   final String label;
   final bool connected;
-  final String power;
+  String power;
   final Color color;
   final double brightness;
 
