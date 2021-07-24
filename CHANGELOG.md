@@ -10,7 +10,19 @@ That is aimed for after initial release.
 
 ---
 
-## [0.0.4] - 2021-05-29
+## [0.0.5] - 2021-07-29
+
+### Added
+
+- Expose `LifxColor` to be used in library.
+
+### Changed
+
+- Change `Color` to `LifxColor` for clarity and to avoid naming collisions.
+
+## [0.0.4] - 2021-07-29
+
+### Changed
 
 - Make `Bulb.power` non-final.
 

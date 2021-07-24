@@ -10,7 +10,7 @@ class Bulb {
   final String label;
   final bool connected;
   String power;
-  final Color color;
+  final LifxColor color;
   final double brightness;
 
   Bulb({

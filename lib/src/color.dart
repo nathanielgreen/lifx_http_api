@@ -3,14 +3,16 @@ import 'package:json_annotation/json_annotation.dart';
 part 'color.g.dart';
 
 @JsonSerializable()
-class Color {
+class LifxColor {
   double hue;
   double saturation;
   int kelvin;
 
-  Color({required this.hue, required this.saturation, required this.kelvin});
+  LifxColor(
+      {required this.hue, required this.saturation, required this.kelvin});
 
-  factory Color.fromJson(Map<String, dynamic> json) => _$ColorFromJson(json);
+  factory LifxColor.fromJson(Map<String, dynamic> json) =>
+      _$LifxColorFromJson(json);
 
-  Map<String, dynamic> toJson() => _$ColorToJson(this);
+  Map<String, dynamic> toJson() => _$LifxColorToJson(this);
 }
