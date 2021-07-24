@@ -10,6 +10,10 @@ That is aimed for after initial release.
 
 ---
 
+## [0.0.4] - 2021-05-29
+
+- Make `Bulb.power` non-final.
+
 ## [0.0.3] - 2021-05-28
 
 ### Added
