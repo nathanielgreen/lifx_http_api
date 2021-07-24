@@ -10,7 +10,14 @@ That is aimed for after initial release.
 
 ---
 
-## [0.0.5] - 2021-07-29
+## [0.0.6] - 2021-07-25
+
+### Changed
+
+- Change `Bulb.color` to non-final.
+- Change `Bulb.brightness` to non-final.
+
+## [0.0.5] - 2021-07-25
 
 ### Added
 
@@ -20,11 +27,11 @@ That is aimed for after initial release.
 
 - Change `Color` to `LifxColor` for clarity and to avoid naming collisions.
 
-## [0.0.4] - 2021-07-29
+## [0.0.4] - 2021-07-25
 
 ### Changed
 
-- Make `Bulb.power` non-final.
+- Change `Bulb.power` to non-final.
 
 ## [0.0.3] - 2021-05-28
 

@@ -10,8 +10,8 @@ class Bulb {
   final String label;
   final bool connected;
   String power;
-  final LifxColor color;
-  final double brightness;
+  LifxColor color;
+  double brightness;
 
   Bulb({
     required this.id,
