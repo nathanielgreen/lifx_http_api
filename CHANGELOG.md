@@ -10,14 +10,22 @@ That is aimed for after initial release.
 
 ---
 
-## [0.0.6] - 2021-07-25
+## [0.0.7] - 2021-07-25
+
+### Added
+
+- Added new `Group` type 
+- Added `Group` to `Bulb.group`
+
+
+## [0.0.6] - 2021-07-24
 
 ### Changed
 
 - Change `Bulb.color` to non-final.
 - Change `Bulb.brightness` to non-final.
 
-## [0.0.5] - 2021-07-25
+## [0.0.5] - 2021-07-24
 
 ### Added
 
@@ -27,7 +35,7 @@ That is aimed for after initial release.
 
 - Change `Color` to `LifxColor` for clarity and to avoid naming collisions.
 
-## [0.0.4] - 2021-07-25
+## [0.0.4] - 2021-07-24
 
 ### Changed
 

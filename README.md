@@ -17,6 +17,10 @@ This library also ships with a command line REPL to use the library. To use it:
 - Run `dart run bin/cli.dart`
 - Run `help` in the REPL to get a list of available commands.
 
+## Editing JsonSerializable types
+
+Run `dart run build_runner build` to regenerate types.
+
 ## LIFX HTTP API Implementation Checklist
 
 - [x] (GET) List Lights
