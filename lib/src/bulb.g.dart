@@ -15,7 +15,7 @@ Bulb _$BulbFromJson(Map<String, dynamic> json) {
     power: json['power'] as String,
     color: LifxColor.fromJson(json['color'] as Map<String, dynamic>),
     brightness: (json['brightness'] as num).toDouble(),
-    group: json['group'] as String,
+    group: Group.fromJson(json['group'] as Map<String, dynamic>),
   );
 }
 

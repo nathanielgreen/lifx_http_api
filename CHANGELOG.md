@@ -10,6 +10,12 @@ That is aimed for after initial release.
 
 ---
 
+## [0.0.8] - 2021-07-25
+
+### Fixed
+
+- Fixed `Bulb.group` to be of type `Group` and not `String`
+
 ## [0.0.7] - 2021-07-25
 
 ### Added
