@@ -59,12 +59,8 @@ Client loadApiKey(Repl repl) {
 }
 
 void getLights(Client client) async {
-  try {
-    final response = await client.listLights();
-    print(response);
-  } catch (e) {
-    if (e is LifxUnauthorizedError) print(LifxUnauthorizedError);
-  }
+  final res = await client.listLights();
+  print(res);
 }
 
 void power(Client client, String id, String power) async {

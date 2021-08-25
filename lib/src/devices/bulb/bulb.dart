@@ -3,6 +3,7 @@ import '../../properties/properties.dart';
 
 part 'bulb.g.dart';
 
+/// An instance of a LIFX Bulb.
 @JsonSerializable()
 class Bulb {
   final String id;

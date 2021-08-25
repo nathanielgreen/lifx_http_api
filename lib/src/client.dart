@@ -6,17 +6,18 @@ import './responses/responses.dart';
 
 /// Client to access the LIFX HTTP API.
 ///
-/// A client that takes an [apiKey] to access the LIFX HTTP API endpoints listed at
+/// LIFX client that takes an [apiKey] to access the LIFX HTTP API endpoints listed at
 /// https://api.developer.lifx.com/docs/
 class Client {
   final String apiKey;
 
   Client(this.apiKey);
 
+  /// API call to list all lights by default or [selector].
   Future<Iterable<Bulb>?> listLights({String selector = "all"}) async {
-    final url = Uri.parse('https://api.lifx.com/v1/lights/$selector');
+    final Uri url = Uri.parse('https://api.lifx.com/v1/lights/$selector');
     final Map<String, String> headers = {"Authorization": "Bearer $apiKey"};
-    final response = await http.get(url, headers: headers);
+    final http.Response response = await http.get(url, headers: headers);
 
     try {
       // Handle invalid credentials
@@ -33,16 +34,18 @@ class Client {
             data.map((Map<String, dynamic> bulb) => Bulb.fromJson(bulb));
         return bulbs;
       }
-    } catch (e) {
+
       throw LifxHttpException(
-        errorMessage: e,
-        statusCode: response.statusCode,
         body: response.body,
+        statusCode: response.statusCode,
       );
+    } catch (e) {
+      throw Exception(e);
     }
   }
 
-  Future<Map<String, dynamic>> setState(
+  /// API call to set the state of a light.
+  Future<SetStateBody> setState(
     String id, {
     String? power,
     double? brightness,
@@ -55,6 +58,8 @@ class Client {
       "Authorization": "Bearer $apiKey",
       "content-type": "application/json"
     };
+
+    // Form body from optional parameters
     final body = {};
     if (power != null) body["power"] = power;
     if (brightness != null) body["brightness"] = brightness;
@@ -62,15 +67,34 @@ class Client {
     if (infrared != null) body["infrared"] = infrared;
     if (fast != null) body["fast"] = fast;
 
-    final http.Response response =
-        await http.put(url, headers: headers, body: jsonEncode(body));
-    final Map<String, dynamic> data =
-        jsonDecode(response.body) as Map<String, dynamic>;
+    final http.Response response = await http.put(
+      url,
+      headers: headers,
+      body: jsonEncode(body),
+    );
 
-    if (response.statusCode == 207) {
-      return data;
-    } else {
-      throw Exception('Failed to set bulb state');
+    try {
+      // Handle invalid credentials
+      if (response.statusCode == 401) {
+        throw LifxUnauthorizedError.fromJson(
+            jsonDecode(response.body) as Map<String, dynamic>);
+      }
+
+      // Handle valid credentials and request
+      if (response.statusCode == 207) {
+        final Map<String, dynamic> data =
+            jsonDecode(response.body) as Map<String, dynamic>;
+
+        final SetStateBody body = SetStateBody.fromJson(data);
+        return body;
+      }
+
+      throw LifxHttpException(
+        body: response.body,
+        statusCode: response.statusCode,
+      );
+    } catch (e) {
+      throw Exception(e);
     }
   }
 }
