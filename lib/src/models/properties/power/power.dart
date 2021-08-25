@@ -1,0 +1,1 @@
+enum LifxPower { on, off }

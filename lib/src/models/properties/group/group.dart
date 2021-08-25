@@ -2,17 +2,20 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'group.g.dart';
 
+
+
 @JsonSerializable()
-class Group {
+class LifxGroup {
   final String id;
   final String name;
 
-  Group({
+  LifxGroup({
     required this.id,
     required this.name,
   });
 
-  factory Group.fromJson(Map<String, dynamic> json) => _$GroupFromJson(json);
+  factory LifxGroup.fromJson(Map<String, dynamic> json) =>
+      _$LifxGroupFromJson(json);
 
-  Map<String, dynamic> toJson() => _$GroupToJson(this);
+  Map<String, dynamic> toJson() => _$LifxGroupToJson(this);
 }

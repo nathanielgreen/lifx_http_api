@@ -2,6 +2,10 @@ import 'dart:convert' show jsonDecode, jsonEncode;
 import 'package:http/http.dart' as http;
 import './bulb.dart' show Bulb;
 
+/// Client to access the LIFX HTTP API.
+///
+/// A client that takes an [apiKey] to access the LIFX HTTP API endpoints listed at
+/// https://api.developer.lifx.com/docs/
 class Client {
   final String apiKey;
 
@@ -11,6 +15,7 @@ class Client {
     final url = Uri.parse('https://api.lifx.com/v1/lights/all');
     final Map<String, String> headers = {"Authorization": "Bearer $apiKey"};
     final response = await http.get(url, headers: headers);
+
     if (response.statusCode == 200) {
       final List<Map<String, dynamic>> data =
           (jsonDecode(response.body) as List<dynamic>)
