@@ -10,6 +10,12 @@ That is aimed for after initial release.
 
 ---
 
+## [0.0.10] - 2021-08-25
+
+### Fixed
+
+- Expose `LifxPower` enum to library.
+
 ## [0.0.9] - 2021-08-25
 
 ### Added
