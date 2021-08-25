@@ -1,6 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import './color.dart';
-import './group.dart';
+import '../../properties/properties.dart';
 
 part 'bulb.g.dart';
 
@@ -10,10 +9,10 @@ class Bulb {
   final String uuid;
   final String label;
   final bool connected;
-  final Group group;
-  String power;
-  LifxColor color;
-  double brightness;
+  final LifxGroup group;
+  final LifxPower power;
+  final LifxColor color;
+  final double brightness;
 
   Bulb({
     required this.id,
