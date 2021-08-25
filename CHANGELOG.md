@@ -10,6 +10,16 @@ That is aimed for after initial release.
 
 ---
 
+## [0.0.11] - 2021-08-25
+
+### Changed
+
+- Change `Bulb.color` to `final` for use with
+  [Equatable](https://github.com/felangel/equatable/)
+- Change `Bulb.brightness` to `final` for use with
+  [Equatable](https://github.com/felangel/equatable/)
+
+
 ## [0.0.10] - 2021-08-25
 
 ### Fixed
