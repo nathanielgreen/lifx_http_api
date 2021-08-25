@@ -10,6 +10,22 @@ That is aimed for after initial release.
 
 ---
 
+## [0.0.9] - 2021-08-25
+
+### Added
+
+- Added `LifxPower` enum.
+- Added `LifxUnauthorizedError` and throw it on any unauthorized HTTP errors.
+- Added `LifxHttpException` and throw it on any unhandled HTTP responses or
+  errors.
+
+### Changed
+
+- Changed `Group` to be `LifxGroup`.
+- `Client.listLights` now accepts a selector, with the default set to `all`.
+- Refactored `Client.listLights` and `Client.setState` to better handle errors
+  and provide http responses on exception. 
+
 ## [0.0.8] - 2021-07-25
 
 ### Fixed

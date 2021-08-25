@@ -14,7 +14,7 @@ class Client {
   Client(this.apiKey);
 
   /// API call to list all lights by default or [selector].
-  Future<Iterable<Bulb>?> listLights({String selector = "all"}) async {
+  Future<Iterable<Bulb>> listLights({String selector = "all"}) async {
     final Uri url = Uri.parse('https://api.lifx.com/v1/lights/$selector');
     final Map<String, String> headers = {"Authorization": "Bearer $apiKey"};
     final http.Response response = await http.get(url, headers: headers);
