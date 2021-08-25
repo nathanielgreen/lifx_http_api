@@ -10,9 +10,9 @@ class Bulb {
   final String label;
   final bool connected;
   final LifxGroup group;
-  final LifxPower power;
-  final LifxColor color;
-  final double brightness;
+  LifxPower power;
+  LifxColor color;
+  double brightness;
 
   Bulb({
     required this.id,

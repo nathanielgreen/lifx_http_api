@@ -2,6 +2,7 @@
 import 'package:lifx_http_api/lifx_http_api.dart' show Client, Bulb;
 import 'package:cli_repl/cli_repl.dart';
 import 'package:dotenv/dotenv.dart' show load, env;
+import 'package:lifx_http_api/src/responses/responses.dart';
 
 void main() async {
   load();
@@ -58,15 +59,11 @@ Client loadApiKey(Repl repl) {
 }
 
 void getLights(Client client) async {
-  final lights = await client.listLights();
-  for (final Bulb light in lights) {
-    print('''
-        ID: ${light.id}
-        Label: ${light.label}
-        Brightness: ${light.brightness}
-        Power: ${light.power}
-        ---
-    ''');
+  try {
+    final response = await client.listLights();
+    print(response);
+  } catch (e) {
+    if (e is LifxUnauthorizedError) print(LifxUnauthorizedError);
   }
 }
 

@@ -1,6 +1,8 @@
 import 'dart:convert' show jsonDecode, jsonEncode;
 import 'package:http/http.dart' as http;
-import './bulb.dart' show Bulb;
+import 'package:lifx_http_api/src/responses/exceptions/lifx_http_exception.dart';
+import './devices/devices.dart';
+import './responses/responses.dart';
 
 /// Client to access the LIFX HTTP API.
 ///
@@ -11,19 +13,33 @@ class Client {
 
   Client(this.apiKey);
 
-  Future<Iterable<Bulb>> listLights() async {
-    final url = Uri.parse('https://api.lifx.com/v1/lights/all');
+  Future<Iterable<Bulb>?> listLights({String selector = "all"}) async {
+    final url = Uri.parse('https://api.lifx.com/v1/lights/$selector');
     final Map<String, String> headers = {"Authorization": "Bearer $apiKey"};
     final response = await http.get(url, headers: headers);
 
-    if (response.statusCode == 200) {
-      final List<Map<String, dynamic>> data =
-          (jsonDecode(response.body) as List<dynamic>)
-              .cast<Map<String, dynamic>>();
-      final Iterable<Bulb> bulbs = data.map((bulb) => Bulb.fromJson(bulb));
-      return bulbs;
+    try {
+      // Handle invalid credentials
+      if (response.statusCode == 401) {
+        throw LifxUnauthorizedError.fromJson(
+            jsonDecode(response.body) as Map<String, dynamic>);
+      }
+
+      // Handle valid credentials and available bulbs
+      if (response.statusCode == 200) {
+        final data = (jsonDecode(response.body) as List<dynamic>)
+            .cast<Map<String, dynamic>>();
+        final Iterable<Bulb> bulbs =
+            data.map((Map<String, dynamic> bulb) => Bulb.fromJson(bulb));
+        return bulbs;
+      }
+    } catch (e) {
+      throw LifxHttpException(
+        errorMessage: e,
+        statusCode: response.statusCode,
+        body: response.body,
+      );
     }
-    throw Exception('Failed to load bulb');
   }
 
   Future<Map<String, dynamic>> setState(

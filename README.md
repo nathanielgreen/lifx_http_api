@@ -5,7 +5,8 @@
 **NOTE:** This library is currently a WIP and therefore unstable, and should not be used for any production environments.
 
 A dart implementation of the [LIFX HTTP
-API](https://api.developer.lifx.com/docs/introduction). 
+API](https://api.developer.lifx.com/docs/introduction). This package also
+provides classes for LIFX devices and device properties.
 
 
 ## LIFX HTTP API Implementation Checklist
