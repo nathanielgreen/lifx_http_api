@@ -8,7 +8,15 @@ That is aimed for after initial release.
 
 ## [Unreleased]
 
+
+
 ---
+
+## [0.0.11+1] - 2021-08-27
+
+### Added 
+
+- Added `copyWith` method to `Bulb` class.
 
 ## [0.0.11] - 2021-08-25
 

@@ -29,4 +29,26 @@ class Bulb {
   factory Bulb.fromJson(Map<String, dynamic> json) => _$BulbFromJson(json);
 
   Map<String, dynamic> toJson() => _$BulbToJson(this);
+
+  Bulb copyWith({
+    String? id,
+    String? uuid,
+    String? label,
+    bool? connected,
+    LifxGroup? group,
+    LifxPower? power,
+    LifxColor? color,
+    double? brightness,
+  }) {
+    return Bulb(
+      id: id ?? this.id,
+      uuid: uuid ?? this.id,
+      label: label ?? this.label,
+      connected: connected ?? this.connected,
+      group: group ?? this.group,
+      power: power ?? this.power,
+      color: color ?? this.color,
+      brightness: brightness ?? this.brightness,
+    );
+  }
 }
