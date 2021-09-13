@@ -42,4 +42,3 @@ This library also ships with a command line REPL to use the library. To use it:
 - Add your LIFX Developer API key to the .env file
 - Run `dart run bin/cli.dart`
 - Run `help` in the REPL to get a list of available commands.
-
