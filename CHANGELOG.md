@@ -12,6 +12,18 @@ That is aimed for after initial release.
 
 ---
 
+## [0.0.12] - 2021-10-31
+
+### Added
+
+- Added the `kelvin` option to the CLI tool
+- Added `color` to the `Client.setState` function so color can now be changed
+  using this library.
+
+### Changed
+
+- Changed `LifxColor` to have optional parameters.
+
 ## [0.0.11+1] - 2021-08-27
 
 ### Added 

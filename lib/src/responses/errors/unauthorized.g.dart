@@ -7,11 +7,10 @@ part of 'unauthorized.dart';
 // **************************************************************************
 
 LifxUnauthorizedError _$LifxUnauthorizedErrorFromJson(
-    Map<String, dynamic> json) {
-  return LifxUnauthorizedError(
-    error: json['error'] as String,
-  );
-}
+        Map<String, dynamic> json) =>
+    LifxUnauthorizedError(
+      error: json['error'] as String,
+    );
 
 Map<String, dynamic> _$LifxUnauthorizedErrorToJson(
         LifxUnauthorizedError instance) =>

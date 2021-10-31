@@ -1,6 +1,7 @@
 import 'dart:convert' show jsonDecode, jsonEncode;
 import 'package:http/http.dart' as http;
 import 'package:lifx_http_api/src/responses/exceptions/lifx_http_exception.dart';
+import './properties/properties.dart';
 import './devices/devices.dart';
 import './responses/responses.dart';
 
@@ -52,6 +53,7 @@ class Client {
     double? duration,
     double? infrared,
     bool? fast,
+    LifxColor? color,
   }) async {
     final url = Uri.parse("https://api.lifx.com/v1/lights/$id/state");
     final headers = {
@@ -66,6 +68,7 @@ class Client {
     if (duration != null) body["duration"] = duration;
     if (infrared != null) body["infrared"] = infrared;
     if (fast != null) body["fast"] = fast;
+    if (color != null) body["color"] = color;
 
     final http.Response response = await http.put(
       url,

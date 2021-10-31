@@ -6,18 +6,16 @@ part of 'bulb.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Bulb _$BulbFromJson(Map<String, dynamic> json) {
-  return Bulb(
-    id: json['id'] as String,
-    uuid: json['uuid'] as String,
-    label: json['label'] as String,
-    connected: json['connected'] as bool,
-    power: _$enumDecode(_$LifxPowerEnumMap, json['power']),
-    color: LifxColor.fromJson(json['color'] as Map<String, dynamic>),
-    brightness: (json['brightness'] as num).toDouble(),
-    group: LifxGroup.fromJson(json['group'] as Map<String, dynamic>),
-  );
-}
+Bulb _$BulbFromJson(Map<String, dynamic> json) => Bulb(
+      id: json['id'] as String,
+      uuid: json['uuid'] as String,
+      label: json['label'] as String,
+      connected: json['connected'] as bool,
+      power: _$enumDecode(_$LifxPowerEnumMap, json['power']),
+      color: LifxColor.fromJson(json['color'] as Map<String, dynamic>),
+      brightness: (json['brightness'] as num).toDouble(),
+      group: LifxGroup.fromJson(json['group'] as Map<String, dynamic>),
+    );
 
 Map<String, dynamic> _$BulbToJson(Bulb instance) => <String, dynamic>{
       'id': instance.id,
