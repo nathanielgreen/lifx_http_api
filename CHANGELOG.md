@@ -12,6 +12,13 @@ That is aimed for after initial release.
 
 ---
 
+## [0.0.13] - 2021-11-05
+
+## Changed 
+
+- Updated `json_annotation` to 4.3.0
+- Updated `json_serializable` to 6.0.1
+
 ## [0.0.12] - 2021-10-31
 
 ### Added
