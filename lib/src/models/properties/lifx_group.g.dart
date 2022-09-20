@@ -1,17 +1,17 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'group.dart';
+part of 'lifx_group.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-LifxGroup _$LifxGroupFromJson(Map<String, dynamic> json) => LifxGroup(
+LIFXGroup _$LIFXGroupFromJson(Map<String, dynamic> json) => LIFXGroup(
       id: json['id'] as String,
       name: json['name'] as String,
     );
 
-Map<String, dynamic> _$LifxGroupToJson(LifxGroup instance) => <String, dynamic>{
+Map<String, dynamic> _$LIFXGroupToJson(LIFXGroup instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
     };

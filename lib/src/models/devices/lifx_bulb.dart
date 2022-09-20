@@ -1,21 +1,21 @@
 import 'package:json_annotation/json_annotation.dart';
-import '../../properties/properties.dart';
+import 'package:lifx_http_api/models.dart';
 
-part 'bulb.g.dart';
+part 'lifx_bulb.g.dart';
 
 /// An instance of a LIFX Bulb.
 @JsonSerializable()
-class Bulb {
+class LIFXBulb {
   final String id;
   final String uuid;
   final String label;
   final bool connected;
-  final LifxGroup group;
-  final LifxPower power;
-  final LifxColor color;
+  final LIFXGroup group;
+  final LIFXPower power;
+  final LIFXColor color;
   final double brightness;
 
-  Bulb({
+  LIFXBulb({
     required this.id,
     required this.uuid,
     required this.label,
@@ -26,18 +26,19 @@ class Bulb {
     required this.group,
   });
 
-  factory Bulb.fromJson(Map<String, dynamic> json) => _$BulbFromJson(json);
+  factory LIFXBulb.fromJson(Map<String, dynamic> json) =>
+      _$LIFXBulbFromJson(json);
 
-  Map<String, dynamic> toJson() => _$BulbToJson(this);
+  Map<String, dynamic> toJson() => _$LIFXBulbToJson(this);
 
   Bulb copyWith({
     String? id,
     String? uuid,
     String? label,
     bool? connected,
-    LifxGroup? group,
-    LifxPower? power,
-    LifxColor? color,
+    LIFXGroup? group,
+    LIFXPower? power,
+    LIFXColor? color,
     double? brightness,
   }) {
     return Bulb(
