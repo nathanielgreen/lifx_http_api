@@ -2,5 +2,5 @@
 /// as some classes for LIFX devices, device properties, and API responses.
 library lifx_http_api;
 
-export './src/lifx_http_api/lifx_http_api.dart';
-export './src/models/models.dart';
+export 'client.dart';
+export 'models.dart';

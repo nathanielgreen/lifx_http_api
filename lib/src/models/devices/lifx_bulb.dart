@@ -31,7 +31,7 @@ class LIFXBulb {
 
   Map<String, dynamic> toJson() => _$LIFXBulbToJson(this);
 
-  Bulb copyWith({
+  LIFXBulb copyWith({
     String? id,
     String? uuid,
     String? label,
@@ -41,7 +41,7 @@ class LIFXBulb {
     LIFXColor? color,
     double? brightness,
   }) {
-    return Bulb(
+    return LIFXBulb(
       id: id ?? this.id,
       uuid: uuid ?? this.id,
       label: label ?? this.label,
