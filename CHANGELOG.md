@@ -6,8 +6,30 @@ format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 The project does **not yet adhere to** [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 That is aimed for after initial release.
 
-## [Unreleased]
+## [0.0.14]
 
+## Added
+
+- Added `Selector` model to match the API https://api.developer.lifx.com/reference/selectors. 
+  - `label` and `id` factories added.
+- `LIFXClient` now accepts an optional `endpoint` parameter.
+- Added `LIFXResponse` type
+- Added `SetStateResponse` type
+
+## Changed
+
+- Upgraded package `lints` to 2.0.0
+- **BREAKING** Rename `Bulb` to `LIFXBulb`
+- **BREAKING** Rename `Client` to `LIFXClient`
+- **BREAKING** Rename `LifxColor` to `LIFXColor`
+- **BREAKING** Rename `LifxGroup` to `LIFXGroup`
+- **BREAKING** Rename `LifxPower` to `LIFXPower`
+- **BREAKING** `LIFXClient.listLights` positional parameter changed from type `String` to type `Selector`.
+
+### LIFXClient Changes
+
+- **BREAKING** `LIFXClient.listLights` return type change from `Future<Iterable<Bulb>>` to `Future<List<LIFXBulb>>` 
+- **BREAKING** Change `LIFXClient.setState` return type from `Future<SetStateBody>` to `Future<SetStateResponse>`
 
 
 ---
