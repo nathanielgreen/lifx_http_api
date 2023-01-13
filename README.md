@@ -1,12 +1,12 @@
 # LIFX HTTP API
 
-[![style: lint](https://img.shields.io/badge/style-lint-4BC0F5.svg)](https://pub.dev/packages/lint)
-
 **NOTE:** This library is currently a WIP and therefore unstable, and should not be used for any production environments.
 
 A dart implementation of the [LIFX HTTP
 API](https://api.developer.lifx.com/docs/introduction). This package also
 provides classes for LIFX devices and device properties.
+
+A CLI REPL is available at `bin/cli.dart`.
 
 
 ## LIFX HTTP API Implementation Checklist
