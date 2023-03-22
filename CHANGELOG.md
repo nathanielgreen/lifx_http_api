@@ -6,9 +6,15 @@ format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 The project does **not yet adhere to** [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 That is aimed for after initial release.
 
+## [0.0.15]
+
+### Added
+
+- Added `http.Response response` property to LIFXError. `response` is now returned with any errors returned from `handleResponse`.
+
 ## [0.0.14]
 
-## Added
+### Added
 
 - Added `Selector` model to match the API https://api.developer.lifx.com/reference/selectors. 
   - `label` and `id` factories added.
@@ -16,7 +22,7 @@ That is aimed for after initial release.
 - Added `LIFXResponse` type
 - Added `SetStateResponse` type
 
-## Changed
+### Changed
 
 - Upgraded package `lints` to 2.0.0
 - **BREAKING** Rename `Bulb` to `LIFXBulb`
@@ -36,7 +42,7 @@ That is aimed for after initial release.
 
 ## [0.0.13] - 2021-11-05
 
-## Changed 
+### Changed 
 
 - Updated `json_annotation` to 4.3.0
 - Updated `json_serializable` to 6.0.1

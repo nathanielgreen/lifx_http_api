@@ -6,7 +6,7 @@ LIFXResponse handleResponse(http.Response response, int successStatusCode) {
     return LIFXResponse(response.body, response.statusCode);
   }
   if (response.statusCode == 401) {
-    throw LIFXUnauthorizedError();
+    throw LIFXUnauthorizedError(response: response);
   }
-  throw LIFXUnknownError();
+  throw LIFXUnknownError(response: response);
 }
