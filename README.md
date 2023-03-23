@@ -8,6 +8,13 @@ provides classes for LIFX devices and device properties.
 
 A CLI REPL is available at `bin/cli.dart`.
 
+## Usage
+
+You'll need a LIFX Personal Access Token to interact with the LIFX HTTP API. 
+You can generate one with your LIFX Cloud account here: https://cloud.lifx.com/settings
+
+See `example/main.dart` on how to pass this token to the dart client.
+
 
 ## LIFX HTTP API Implementation Checklist
 
