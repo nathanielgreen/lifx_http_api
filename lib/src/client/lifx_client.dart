@@ -26,7 +26,7 @@ class LIFXClient {
 
     try {
       final http.Response response = await http.get(url, headers: headers);
-      final LIFXResponse handledRes = handleResponse(response, 200);
+      final LIFXResponse handledRes = handleResponse(response);
       final List<Map<String, dynamic>> body =
           List<Map<String, dynamic>>.from(jsonDecode(handledRes.body));
       final List<LIFXBulb> bulbs = body
@@ -71,7 +71,7 @@ class LIFXClient {
         headers: headers,
         body: jsonEncode(body),
       );
-      final LIFXResponse handledRes = handleResponse(response, 207);
+      final LIFXResponse handledRes = handleResponse(response);
       final SetStateResponse result =
           SetStateResponse(handledRes.body, handledRes.statusCode);
       return result;

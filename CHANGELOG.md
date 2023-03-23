@@ -6,7 +6,13 @@ format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 The project does **not yet adhere to** [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 That is aimed for after initial release.
 
-## [0.0.15]
+## [0.0.16] - 2023-03-23
+
+### Fixed
+
+- Fixed an issue with `LIFXClient.setState` that caused successful status codes that aren't 207 to throw an error.
+
+## [0.0.15] - 2023-03-22
 
 ### Added
 
