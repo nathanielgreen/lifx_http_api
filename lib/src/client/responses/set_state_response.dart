@@ -5,12 +5,12 @@ import 'package:lifx_http_api/client.dart';
 part 'set_state_response.g.dart';
 
 class SetStateResponse extends LIFXResponse {
-  final SetStateBody data;
+  final SetStateBody? data;
 
   SetStateResponse(
     super.body,
     super.statusCode,
-  ) : data = SetStateBody.fromJson(jsonDecode(body));
+  ) : data = body.isEmpty ? null : SetStateBody.fromJson(jsonDecode(body));
 }
 
 @JsonSerializable()

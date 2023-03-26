@@ -14,10 +14,13 @@ class LIFXClient {
   /// API Endpoint for the LIFX HTTP API
   final String endpoint;
 
+  final http.Client _client;
+
   LIFXClient(
     this.apiKey, {
     this.endpoint = 'https://api.lifx.com/v1/lights',
-  });
+    http.Client? client,
+  }) : _client = client ?? http.Client();
 
   /// API call to list all lights by default or [selector].
   Future<List<LIFXBulb>> listLights(Selector selector) async {
@@ -25,7 +28,7 @@ class LIFXClient {
     final Map<String, String> headers = {"Authorization": "Bearer $apiKey"};
 
     try {
-      final http.Response response = await http.get(url, headers: headers);
+      final http.Response response = await _client.get(url, headers: headers);
       final LIFXResponse handledRes = handleResponse(response);
       final List<Map<String, dynamic>> body =
           List<Map<String, dynamic>>.from(jsonDecode(handledRes.body));
@@ -66,7 +69,7 @@ class LIFXClient {
     if (color != null) body["color"] = color;
 
     try {
-      final http.Response response = await http.put(
+      final http.Response response = await _client.put(
         url,
         headers: headers,
         body: jsonEncode(body),
