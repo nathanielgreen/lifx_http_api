@@ -5,16 +5,15 @@ homepage: https://github.com/nathanielgreen/lifx_http_api
 repository: https://github.com/nathanielgreen/lifx_http_api
 
 environment:
-  sdk: '>=2.18.0 <3.0.0'
+  sdk: '>=2.18.0 <4.0.0'
 
 dependencies:
   cli_repl: ^0.2.3
-  dotenv: ^4.0.1
-  http: ^0.13.5
-  json_annotation: ^4.6.0
+  dotenv: ^4.1.0
+  http: ^1.1.0
+  json_annotation: ^4.8.1
 
 dev_dependencies:
-  json_serializable: ^6.3.2
-  lints: ^2.0.0
-  build_runner: ^2.2.1
-
+  json_serializable: ^6.7.1
+  lints: ^2.1.1
+  build_runner: ^2.4.6
