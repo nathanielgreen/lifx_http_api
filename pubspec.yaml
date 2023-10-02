@@ -1,6 +1,6 @@
 name: lifx_http_api
 description: A dart implementation of the LIFX HTTP API for smart LED bulbs.
-version: 0.0.16
+version: 0.0.17
 homepage: https://github.com/nathanielgreen/lifx_http_api
 repository: https://github.com/nathanielgreen/lifx_http_api
 
